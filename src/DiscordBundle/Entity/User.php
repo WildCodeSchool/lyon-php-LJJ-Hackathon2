@@ -36,13 +36,6 @@ class User
     private $password;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="avatar", type="blob")
-     */
-    private $avatar;
-
-    /**
      * One User can give Many loves
      * @var
      * @ORM\OneToMany(targetEntity="Love", mappedBy="user", cascade={"persist"})
@@ -139,15 +132,6 @@ class User
         return $this;
     }
 
-    /**
-     * Get avatar
-     *
-     * @return string
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
     /**
      * Constructor
      */

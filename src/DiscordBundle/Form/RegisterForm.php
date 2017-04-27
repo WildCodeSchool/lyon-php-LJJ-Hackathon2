@@ -2,32 +2,41 @@
 
 namespace DiscordBundle\Form;
 
-use DiscordBundle\Entity\Message;
+use DiscordBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChatForm extends AbstractType
+/**
+ * Class RegisterForm
+ * @package DiscordBundle\Form
+ */
+class RegisterForm extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('message', TextareaType::class, [
+            ->add('name', TextType::class, [
                 'attr'  => [
-                    'rows'          => '3',
-                    'placeholder'   => 'Mon message'
+                    'placeholder'   => 'Username'
                 ],
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Envoyer']);
+            ->add('password', PasswordType::class, [
+                'attr'  => [
+                    'placeholder'   => 'Password'
+                ],
+            ])
+            ->add('submit', SubmitType::class, ['label' => 'S\'inscrire']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Message::class,
+            'data_class' => User::class,
         ));
     }
 
