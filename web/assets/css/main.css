@@ -1,0 +1,26 @@
+/* Style */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; }
+
+#chat-id {
+  color: #fff; }
+  #chat-id .message-area {
+    background-color: #1c313a;
+    padding: 2rem; }
+    #chat-id .message-area .message-block {
+      background-color: #718792;
+      padding: 1rem; }
+      #chat-id .message-area .message-block .message-name {
+        font-weight: 700; }
+      #chat-id .message-area .message-block .message-date {
+        font-weight: 400; }
+  #chat-id .writing-area {
+    background-color: #455a64;
+    padding: 2rem; }
+    #chat-id .writing-area .writing-box {
+      background-color: #718792;
+      margin: 0 auto;
+      padding: 1rem; }
