@@ -42,6 +42,30 @@ class User
      */
     private $avatar;
 
+    /**
+     * One User can give Many loves
+     * @var
+     * @ORM\OneToMany(targetEntity="Love", mappedBy="user_id", cascade={"persist"})
+     */
+    private $loves;
+
+    /**
+     * One User can write Many messages
+     * @var
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="user_id", cascade={"persist"})
+     */
+    private $messages;
+
+
+    /**
+     * One User can write Many quotes
+     * @var
+     * @ORM\OneToMany(targetEntity="Quote", mappedBy="user_id", cascade={"persist"})
+     */
+    private $quotes;
+
+
+
 
     /**
      * Get id

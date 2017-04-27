@@ -23,6 +23,18 @@ class Quote
 
 
     /**
+     * Many Quote can be written by One user
+     * @var
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="quotes", cascade={"persist"})
+     */
+    private $user_id;
+
+
+
+
+
+
+    /**
      * Get id
      *
      * @return int

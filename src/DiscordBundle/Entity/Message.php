@@ -37,6 +37,24 @@ class Message
 
 
     /**
+     * One Message can have Many loves
+     * @var
+     * @ORM\OneToMany(targetEntity="Love", mappedBy="message_id", cascade={"persist"})
+     */
+    private $loves;
+
+
+    /**
+     * Many Messages can come from One User
+     * @var
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="messages", cascade={"persist"})
+     */
+    private $user_id;
+
+
+
+
+    /**
      * Get id
      *
      * @return int
