@@ -118,4 +118,104 @@ class Message
     {
         return $this->datetime;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->loves = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->quotes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add love
+     *
+     * @param \DiscordBundle\Entity\Love $love
+     *
+     * @return Message
+     */
+    public function addLove(\DiscordBundle\Entity\Love $love)
+    {
+        $this->loves[] = $love;
+
+        return $this;
+    }
+
+    /**
+     * Remove love
+     *
+     * @param \DiscordBundle\Entity\Love $love
+     */
+    public function removeLove(\DiscordBundle\Entity\Love $love)
+    {
+        $this->loves->removeElement($love);
+    }
+
+    /**
+     * Get loves
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLoves()
+    {
+        return $this->loves;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \DiscordBundle\Entity\User $user
+     *
+     * @return Message
+     */
+    public function setUser(\DiscordBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \DiscordBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add quote
+     *
+     * @param \DiscordBundle\Entity\Quote $quote
+     *
+     * @return Message
+     */
+    public function addQuote(\DiscordBundle\Entity\Quote $quote)
+    {
+        $this->quotes[] = $quote;
+
+        return $this;
+    }
+
+    /**
+     * Remove quote
+     *
+     * @param \DiscordBundle\Entity\Quote $quote
+     */
+    public function removeQuote(\DiscordBundle\Entity\Quote $quote)
+    {
+        $this->quotes->removeElement($quote);
+    }
+
+    /**
+     * Get quotes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getQuotes()
+    {
+        return $this->quotes;
+    }
 }
