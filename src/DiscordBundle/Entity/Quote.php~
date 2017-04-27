@@ -23,6 +23,21 @@ class Quote
 
 
     /**
+     * Many Quote can be written by One user
+     * @var
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="quotes", cascade={"persist"})
+     */
+    private $user;
+
+    /**
+     * Each Quote comes from only One message
+     * @var
+     * @ORM\ManyToOne(targetEntity="Message", inversedBy="quotes", cascade={"persist"})
+     */
+    private $message;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -32,4 +47,3 @@ class Quote
         return $this->id;
     }
 }
-

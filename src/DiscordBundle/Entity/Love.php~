@@ -23,6 +23,20 @@ class Love
 
 
     /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="loves", cascade={"persist"})
+     */
+    private $user;
+
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="Message", inversedBy="loves", cascade={"persist"})
+     */
+    private $message;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -32,4 +46,3 @@ class Love
         return $this->id;
     }
 }
-
