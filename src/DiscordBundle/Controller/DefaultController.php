@@ -23,8 +23,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $register->setName('test');
-            $register->setPassword('pass');
+
 
             $em->persist($register);
             $em->flush();
