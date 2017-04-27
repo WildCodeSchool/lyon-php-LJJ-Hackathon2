@@ -1,0 +1,5 @@
+discord:
+    resource: "@DiscordBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
