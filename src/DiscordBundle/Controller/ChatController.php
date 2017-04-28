@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class ChatController extends Controller
 {
     /**
      * @param Request $request
@@ -16,6 +16,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        /**
+         * Register part
+         */
+
         $em = $this->getDoctrine()->getManager();
         $register = new User();
 
@@ -23,11 +27,18 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-
+$r->set('name', $register->getName());
             $em->persist($register);
             $em->flush();
             return $this->redirectToRoute('home');
         }
+
+
+
+
+
+
+
 
         return $this->render('DiscordBundle:Default:home.html.twig', array(
             'form' => $form->createView(),

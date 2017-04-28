@@ -16,3 +16,4 @@
 /web/bundles/
 /node_modules/
 test.html.twig
+SecurityController.php
