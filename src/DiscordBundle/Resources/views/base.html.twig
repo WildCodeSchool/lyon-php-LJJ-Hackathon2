@@ -11,48 +11,24 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 <body>
-{% block header %}
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">JLJ Chat</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="parameters.html"><i class="material-icons right">settings</i>Paramètres</a></li>
-            </ul>
-        </div>
-    </nav>
-{% endblock %}
-{% block body %}{% endblock %}
-{% block footer %}
-<footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2017 JLJ Team
-            <a class="grey-text text-lighten-4 right" href="https://wildcodeschool.fr">Wild Code School</a>
-        </div>
-    </div>
-</footer>
-{% endblock %}
-{% block javascripts %}{% endblock %}
-<script
+    <header>
+        {% include '@Discord/Partials/header.html.twig' %}
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+        {% include '@Discord/Partials/footer.html.twig' %}
+    </footer>
+    {% include '@Discord/Partials/modal.html.twig' %}
+
+    {% block javascripts %}{% endblock %}
+    <script
         src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js') }}">
 
-</script>
-<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js') }}"></script>
-<script src="{{ asset('assets/js/modal.js') }}"></script>
-<script src="{{ asset('assets/js/tabs.js') }}"></script>
+    </script>
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js') }}"></script>
+    <script src="{{ asset('assets/js/modal.js') }}"></script>
+    <script src="{{ asset('assets/js/tabs.js') }}"></script>
 </body>
 </html>

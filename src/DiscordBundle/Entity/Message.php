@@ -35,22 +35,12 @@ class Message
      */
     private $datetime;
 
-
     /**
      * One Message can have Many loves
      * @var
      * @ORM\OneToMany(targetEntity="Love", mappedBy="message", cascade={"persist"})
      */
     private $loves;
-
-
-    /**
-     * Many Messages can come from One User
-     * @var
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="messages", cascade={"persist"})
-     */
-    private $user;
-
 
     /**
      * One Message can include Many quotes
@@ -59,11 +49,15 @@ class Message
      */
     private $quotes;
 
+    /**
+     * @var string
+     * @ORM\Column(name="username", type="string")
+     */
+    private $username;
 
 
     /**
      * Get id
-     *
      * @return int
      */
     public function getId()
@@ -72,10 +66,7 @@ class Message
     }
 
     /**
-     * Set message
-     *
      * @param string $message
-     *
      * @return Message
      */
     public function setMessage($message)
@@ -87,7 +78,6 @@ class Message
 
     /**
      * Get message
-     *
      * @return string
      */
     public function getMessage()
@@ -96,10 +86,7 @@ class Message
     }
 
     /**
-     * Set datetime
-     *
      * @param \DateTime $datetime
-     *
      * @return Message
      */
     public function setDatetime($datetime)
@@ -111,7 +98,6 @@ class Message
 
     /**
      * Get datetime
-     *
      * @return \DateTime
      */
     public function getDatetime()
@@ -128,10 +114,7 @@ class Message
     }
 
     /**
-     * Add love
-     *
      * @param \DiscordBundle\Entity\Love $love
-     *
      * @return Message
      */
     public function addLove(\DiscordBundle\Entity\Love $love)
@@ -142,8 +125,6 @@ class Message
     }
 
     /**
-     * Remove love
-     *
      * @param \DiscordBundle\Entity\Love $love
      */
     public function removeLove(\DiscordBundle\Entity\Love $love)
@@ -159,30 +140,6 @@ class Message
     public function getLoves()
     {
         return $this->loves;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \DiscordBundle\Entity\User $user
-     *
-     * @return Message
-     */
-    public function setUser(\DiscordBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \DiscordBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**
@@ -217,5 +174,30 @@ class Message
     public function getQuotes()
     {
         return $this->quotes;
+    }
+
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     *
+     * @return Message
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 }

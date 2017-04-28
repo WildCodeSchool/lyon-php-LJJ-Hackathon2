@@ -5,6 +5,9 @@ html, body {
   width: 100%;
   height: 100%; }
 
+.nav-wrapper {
+  background-color: #455a64; }
+
 #chat-id {
   color: #fff; }
   #chat-id .message-area {
@@ -26,4 +29,10 @@ html, body {
       background-color: #718792;
       border-radius: 3px;
       margin: 0 auto;
-      padding: 1rem; }
+      padding: 3rem; }
+
+#test-swipe-1 {
+  padding: 1rem !important; }
+
+.page-footer {
+  background-color: #455a64; }

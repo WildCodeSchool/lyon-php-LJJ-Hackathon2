@@ -1,42 +1,25 @@
 <section id="chat-id">
     <div class="message-area">
 
-        <p class="message-block">
-
-            <span class="message-name">
-                Username
-            </span>
-
-            <span class="message-date">
-                [10:22]
-            </span>
-            :
-            <span class="message-message">
-                Je fais un hackathon !!
-            </span>
-
-        </p>
-        <p class="message-block">
-
-            <span class="message-name">
-                Username
-            </span>
-
-            <span class="message-date">
-                [10:22]
-            </span>
-            :
-            <span class="message-message">
-                Je fais un hackathon !!
-            </span>
-
-        </p>
+        {% for message in messages %}
+            <p class="message-block">
+                <span class="message-name">
+                    {{ message.username }}
+                </span>
+                <span class="message-date">
+                    le {{ message.datetime|date('Y-m-d \\à H:i:s') }}
+                </span>
+                <span class="message-message">
+                    {{ message.message }}
+                </span>
+            </p>
+        {% endfor %}
 
     </div>
 
     <div class="writing-area">
         <div class="writing-box">
-            {{ form(form) }}
+            {{ form(form3) }}
         </div>
     </div>
 

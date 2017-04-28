@@ -43,22 +43,11 @@ class User
     private $loves;
 
     /**
-     * One User can write Many messages
-     * @var
-     * @ORM\OneToMany(targetEntity="Message", mappedBy="user", cascade={"persist"})
-     */
-    private $messages;
-
-
-    /**
      * One User can write Many quotes
      * @var
      * @ORM\OneToMany(targetEntity="Quote", mappedBy="user", cascade={"persist"})
      */
     private $quotes;
-
-
-
 
     /**
      * Get id
@@ -161,30 +150,6 @@ class User
     public function getLoves()
     {
         return $this->loves;
-    }
-
-    /**
-     * Add message
-     *
-     * @param \DiscordBundle\Entity\Message $message
-     *
-     * @return User
-     */
-    public function addMessage(\DiscordBundle\Entity\Message $message)
-    {
-        $this->messages[] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Remove message
-     *
-     * @param \DiscordBundle\Entity\Message $message
-     */
-    public function removeMessage(\DiscordBundle\Entity\Message $message)
-    {
-        $this->messages->removeElement($message);
     }
 
     /**

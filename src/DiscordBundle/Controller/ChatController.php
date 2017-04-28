@@ -42,7 +42,7 @@ class ChatController extends Controller
         $form2 = $this->createForm(LoginForm::class, $register2);
         $form2->handleRequest($request);
         if ($form2->isSubmitted() && $form2->isValid()){
-            $session->set('name', $register->getName());
+            $session->set('name', $register2->getName());
             $session->getFlashBag()->add('notice', 'Vous êtes connecté !');
             return $this->redirectToRoute('home');
         }
@@ -52,10 +52,19 @@ class ChatController extends Controller
         }
 
         /**
+         *  Get all message
+         */
+        $repository = $this->getDoctrine()->getRepository('DiscordBundle:Message');
+        $messages = $repository->findAll();
+
+        /**
          * Message part
          */
         $display = new Message();
-        $display->setDatetime(date('d-m-Y H:i:s'));
+        $display->setDatetime(new \DateTime("now"));
+        $user_name = $session->get('name');
+        $display->setUsername($user_name);
+
         $form3 = $this->createForm(ChatForm::class, $display);
         $form3->handleRequest($request);
 
@@ -64,10 +73,13 @@ class ChatController extends Controller
             $em->flush();
             return $this->redirectToRoute('home'); /** To be deleted later */
         }
+
         return $this->render('DiscordBundle:Default:home.html.twig', array(
             'form' => $form->createView(),
             'form2' => $form2->createView(),
             'form3' => $form3->createView(),
+            'messages' => $messages,
+            'username' => $user_name
         ));
     }
     /**
@@ -77,9 +89,7 @@ class ChatController extends Controller
     public function disconnectAction()
     {
         $this->get('session')->invalidate();
-        $session = $this->get('session');
         return $this->render('DiscordBundle:Default:disconnect.html.twig', array(
-            'session' => $session
         ));
     }
 
