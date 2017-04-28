@@ -29,7 +29,10 @@ html, body {
         display: block;
         float: right; }
         #chat-id .message-area .message-block .delete-option a {
-          color: #fff !important; }
+          color: #fff !important;
+          transition: 0.35s ease; }
+          #chat-id .message-area .message-block .delete-option a:hover {
+            transform: scale(1.3); }
   #chat-id .writing-area {
     background-color: #455a64;
     padding: 2rem; }

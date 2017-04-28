@@ -15,7 +15,9 @@
                     {{ message.message }}
                 </span>
 
-                <span class="delete-option"><a href="/delete/{{ message.id }}">Supprimer</a></span>
+                {% if message.username == username %}
+                    <span class="delete-option"><a href="/delete/{{ message.id }}">Supprimer</a></span>
+                {% endif %}
             </p>
         {% endfor %}
 

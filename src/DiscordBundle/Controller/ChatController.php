@@ -44,10 +44,6 @@ class ChatController extends Controller
         $form2->handleRequest($request);
         if ($form2->isSubmitted() && $form2->isValid()){
             $session->set('name', $register2->getName());
-            $session->set('user', 'true');
-            $session->set('filter', array(
-                'accounts' => 'valid',
-            ));
             $session->getFlashBag()->add('notice', 'Vous êtes connecté !');
             return $this->redirectToRoute('home');
         }
@@ -85,7 +81,6 @@ class ChatController extends Controller
             'form3' => $form3->createView(),
             'messages' => $messages,
             'username' => $user_name,
-            'session' => $session
         ));
     }
     /**
@@ -108,7 +103,7 @@ class ChatController extends Controller
         $message = $em->getRepository('DiscordBundle:Message')->find($id);
         $em->remove($message);
         $em->flush();
-        return $this->render('DiscordBundle:Default:redirect.html.twig');
+        return $this->redirectToRoute('home');
     }
 
 }

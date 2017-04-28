@@ -28,6 +28,11 @@
         float: right;
         a {
           color: #fff!important;
+          transition: 0.35s ease;
+
+          &:hover {
+            transform: scale(1.3);
+          }
 
         }
       }
