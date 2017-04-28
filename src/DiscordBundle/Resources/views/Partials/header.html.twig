@@ -3,9 +3,12 @@
         <a href="#" class="brand-logo">JLJ Chat</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-                <a class="waves-effect waves-light btn" href="#MODAL1">
-                    Inscription / Connexion
-                </a>
+                {% if user == 'valid' %}
+                    <a class="waves-effect waves-light btn" href="#MODAL1">Inscription / Connexion</a>
+                {% else %}
+                    <a class="waves-effect waves-light btn" href="/disconnect">Déconnexion</a>
+                {% endif %}
+
             </li>
         </ul>
     </div>

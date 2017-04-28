@@ -45,6 +45,9 @@ class ChatController extends Controller
         if ($form2->isSubmitted() && $form2->isValid()){
             $session->set('name', $register2->getName());
             $session->set('user', 'true');
+            $session->set('filter', array(
+                'accounts' => 'valid',
+            ));
             $session->getFlashBag()->add('notice', 'Vous êtes connecté !');
             return $this->redirectToRoute('home');
         }
