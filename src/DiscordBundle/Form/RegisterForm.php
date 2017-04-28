@@ -17,22 +17,29 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class RegisterForm extends AbstractType
 {
 
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name', TextType::class, [
                 'attr'  => [
-                    'placeholder'   => 'Username'
+                    'placeholder' => 'Tapez votre pseudo ici'
                 ],
             ])
             ->add('password', PasswordType::class, [
                 'attr'  => [
-                    'placeholder'   => 'Password'
+                    'placeholder' => 'Password'
                 ],
             ])
             ->add('submit', SubmitType::class, ['label' => 'S\'inscrire']);
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -40,9 +47,6 @@ class RegisterForm extends AbstractType
         ));
     }
 
-    public function getBlockPrefix()
-    {
-        return 'discord_bundle_message';
-    }
+
 
 }

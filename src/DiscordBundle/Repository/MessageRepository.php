@@ -10,4 +10,16 @@ namespace DiscordBundle\Repository;
  */
 class MessageRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Method for login
+     */
+    public function verifUserPass($username, $password)
+    {
+        return $this->createQueryBuilder('user')
+            ->where("user.name == $username")
+            ->andWhere("user.password == $password")
+            ->getQuery()
+            ->getResult();
+    }
+
 }
