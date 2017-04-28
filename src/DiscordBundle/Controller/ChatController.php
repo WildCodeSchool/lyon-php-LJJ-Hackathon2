@@ -29,12 +29,10 @@ class ChatController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-
             $em->persist($register);
             $em->flush();
             return $this->redirectToRoute('home');
         }
-
 
         /**
          * Login part
@@ -54,7 +52,7 @@ class ChatController extends Controller
         }
 
         /**
-         * "Post a message" part
+         * Message part
          */
         $display = new Message();
         $display->setDatetime(date('d-m-Y H:i:s'));
@@ -74,16 +72,15 @@ class ChatController extends Controller
     }
     /**
      * Disconnect
-     * @Route("/disconnect", name="disconnect_his_mother")
+     * @Route("/disconnect", name="disconnect")
      */
     public function disconnectAction()
     {
         $this->get('session')->invalidate();
         $session = $this->get('session');
-        return $this->render('DiscordBundle:Partials:disconnect.html.twig', array(
+        return $this->render('DiscordBundle:Default:disconnect.html.twig', array(
             'session' => $session
         ));
-
     }
 
 }

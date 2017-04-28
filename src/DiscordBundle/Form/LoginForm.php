@@ -23,13 +23,18 @@ class LoginForm extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'attr' => ['placeholder' => 'Votre pseudo'],
+                'attr' => [
+                    'placeholder' => 'Votre pseudo'
+                ],
             ])
             ->add('password', PasswordType::class, [
-                'attr' => ['placeholder' => 'Votre mot de passe'],
+                'attr' => [
+                    'placeholder' => 'Votre mot de passe'
+                ],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Connecte-toi !']);
+                'label' => 'Connecte-toi !'
+            ]);
     }
 
 
