@@ -17,11 +17,19 @@ html, body {
       background-color: #718792;
       border-radius: 3px;
       display: block;
-      padding: 1rem; }
+      padding: 1rem;
+      word-wrap: break-word; }
       #chat-id .message-area .message-block .message-name {
-        font-weight: 700; }
+        font-weight: 700;
+        font-size: 1.2rem; }
       #chat-id .message-area .message-block .message-date {
-        font-weight: 400; }
+        font-weight: 400;
+        font-style: italic; }
+      #chat-id .message-area .message-block .delete-option {
+        display: block;
+        float: right; }
+        #chat-id .message-area .message-block .delete-option a {
+          color: #fff !important; }
   #chat-id .writing-area {
     background-color: #455a64;
     padding: 2rem; }
@@ -29,10 +37,30 @@ html, body {
       background-color: #718792;
       border-radius: 3px;
       margin: 0 auto;
-      padding: 3rem; }
+      padding: 2rem; }
+
+.large-block {
+  display: inline-block;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  width: 200px;
+  border: 1px solid #455a64;
+  margin-right: 1rem; }
+
+label {
+  color: #fff; }
 
 #test-swipe-1 {
   padding: 1rem !important; }
+
+#discord_bundle_message_submit {
+  text-decoration: none;
+  background-color: #455a64 !important;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 5px;
+  transition: 2s ease;
+  border-radius: 3px; }
 
 .page-footer {
   background-color: #455a64; }
