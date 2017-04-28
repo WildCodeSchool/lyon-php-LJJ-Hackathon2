@@ -47,12 +47,6 @@ class RegisterForm extends AbstractType
         ));
     }
 
-    /**
-     * @return string
-     */
-    public function getBlockPrefix()
-    {
-        return 'discord_bundle_register';
-    }
+
 
 }
