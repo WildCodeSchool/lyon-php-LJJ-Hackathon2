@@ -1,13 +1,16 @@
+#MODAL1 {
+  background-color: $color01;
+}
+
+
 .tabs-swipe-demo {
-
   li {
-
     a {
-
       width: 40%!important;
-
     }
-
   }
+}
 
+.signin, .signup {
+  font-size: 36px;
 }

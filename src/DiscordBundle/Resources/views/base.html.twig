@@ -11,17 +11,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 <body>
-    {% include 'DiscordBundle:Partials:header.html.twig' %}
-
+    <header>
+        {% include '@Discord/Partials/header.html.twig' %}
+    </header>
     <main>
         {% block body %}{% endblock %}
     </main>
+    <footer>
+        {% include '@Discord/Partials/footer.html.twig' %}
+    </footer>
+    {% include '@Discord/Partials/modal.html.twig' %}
 
-    {% include 'DiscordBundle:Partials:footer.html.twig' %}
-    {% include 'DiscordBundle:Partials:modal.html.twig' %}
     {% block javascripts %}{% endblock %}
     <script
-            src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js') }}">
+        src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js') }}">
 
     </script>
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js') }}"></script>
