@@ -71,6 +71,19 @@ class ChatController extends Controller
             'form2' => $form2->createView(),
             'form3' => $form3->createView(),
         ));
+    }
+    /**
+     * Disconnect
+     * @Route("/disconnect", name="disconnect_his_mother")
+     */
+    public function disconnectAction()
+    {
+        $this->get('session')->invalidate();
+        $session = $this->get('session');
+        return $this->render('DiscordBundle:Partials:disconnect.html.twig', array(
+            'session' => $session
+        ));
 
     }
+
 }
