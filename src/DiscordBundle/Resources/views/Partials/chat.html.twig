@@ -3,15 +3,21 @@
 
         {% for message in messages %}
             <p class="message-block">
-                <span class="message-name">
-                    {{ message.username }}
-                </span>
-                <span class="message-date">
-                    le {{ message.datetime|date('Y-m-d \\à H:i:s') }}
+                <span class="large-block">
+                    <span class="message-name">
+                        {{ message.username }}
+                    </span>
+                    <span class="message-date">
+                        {{ message.datetime|date('à H:i:s') }}
+                    </span>
                 </span>
                 <span class="message-message">
                     {{ message.message }}
                 </span>
+
+                {% if message.username == username %}
+                    <span class="delete-option"><a href="/delete/{{ message.id }}">Supprimer</a></span>
+                {% endif %}
             </p>
         {% endfor %}
 

@@ -14,13 +14,12 @@
     <header>
         {% include '@Discord/Partials/header.html.twig' %}
     </header>
-    <main>
+    <main class="container">
         {% block body %}{% endblock %}
     </main>
     <footer>
         {% include '@Discord/Partials/footer.html.twig' %}
     </footer>
-    {% include '@Discord/Partials/modal.html.twig' %}
 
     {% block javascripts %}{% endblock %}
     <script

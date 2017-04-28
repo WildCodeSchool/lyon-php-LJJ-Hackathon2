@@ -9,6 +9,7 @@ use DiscordBundle\Form\LoginForm;
 use DiscordBundle\Form\RegisterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -55,7 +56,7 @@ class ChatController extends Controller
          *  Get all message
          */
         $repository = $this->getDoctrine()->getRepository('DiscordBundle:Message');
-        $messages = $repository->findAll();
+        $messages = $repository->findBy(array(), null, 20, 0);;
 
         /**
          * Message part
@@ -71,7 +72,7 @@ class ChatController extends Controller
         if ($form3->isSubmitted() && $form3->isValid()) {
             $em->persist($display);
             $em->flush();
-            return $this->redirectToRoute('home'); /** To be deleted later */
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('DiscordBundle:Default:home.html.twig', array(
@@ -79,7 +80,7 @@ class ChatController extends Controller
             'form2' => $form2->createView(),
             'form3' => $form3->createView(),
             'messages' => $messages,
-            'username' => $user_name
+            'username' => $user_name,
         ));
     }
     /**
@@ -89,8 +90,20 @@ class ChatController extends Controller
     public function disconnectAction()
     {
         $this->get('session')->invalidate();
-        return $this->render('DiscordBundle:Default:disconnect.html.twig', array(
-        ));
+        return $this->render('DiscordBundle:Default:redirect.html.twig');
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $message = $em->getRepository('DiscordBundle:Message')->find($id);;
+        $em->remove($message);
+        $em->flush();
+        return $this->redirectToRoute('home');
     }
 
 }
