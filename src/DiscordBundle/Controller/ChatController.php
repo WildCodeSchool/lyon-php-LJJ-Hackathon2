@@ -42,7 +42,7 @@ class ChatController extends Controller
         $form2 = $this->createForm(LoginForm::class, $register2);
         $form2->handleRequest($request);
         if ($form2->isSubmitted() && $form2->isValid()){
-            $session->set('name', $register->getName());
+            $session->set('name', $register2->getName());
             $session->getFlashBag()->add('notice', 'Vous êtes connecté !');
             return $this->redirectToRoute('home');
         }
