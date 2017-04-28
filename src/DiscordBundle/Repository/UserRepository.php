@@ -11,4 +11,13 @@ namespace DiscordBundle\Repository;
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    public function verifUserLogs($username, $password)
+    {
+        return $this->createQueryBuilder('user')
+            ->where('user.name = :name')
+            ->andWhere('user.password = :pwd')
+            ->setParameter('name', $username)
+            ->setParameter('pwd', $password);
+    }
+
 }

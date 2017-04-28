@@ -4,7 +4,7 @@
         {% for message in messages %}
             <p class="message-block">
                 <span class="message-name">
-                    {{ username }}
+                    {{ message.username }}
                 </span>
                 <span class="message-date">
                     le {{ message.datetime|date('Y-m-d \\à H:i:s') }}

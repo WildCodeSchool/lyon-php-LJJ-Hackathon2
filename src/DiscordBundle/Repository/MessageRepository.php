@@ -11,4 +11,5 @@ namespace DiscordBundle\Repository;
 class MessageRepository extends \Doctrine\ORM\EntityRepository
 {
 
+
 }

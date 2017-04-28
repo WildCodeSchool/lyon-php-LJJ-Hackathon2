@@ -23,6 +23,11 @@ class Message
 
     /**
      * @var string
+     */
+    private $pseudo;
+
+    /**
+     * @var string
      *
      * @ORM\Column(name="message", type="text")
      */
@@ -35,7 +40,6 @@ class Message
      */
     private $datetime;
 
-
     /**
      * One Message can have Many loves
      * @var
@@ -43,14 +47,10 @@ class Message
      */
     private $loves;
 
-
     /**
-     * Many Messages can come from One User
      * @var
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="messages", cascade={"persist"})
      */
     private $user;
-
 
     /**
      * One Message can include Many quotes
@@ -58,7 +58,6 @@ class Message
      * @ORM\OneToMany(targetEntity="Quote", mappedBy="message", cascade={"persist"})
      */
     private $quotes;
-
 
 
     /**

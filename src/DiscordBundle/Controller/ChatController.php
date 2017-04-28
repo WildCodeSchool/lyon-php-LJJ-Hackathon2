@@ -57,13 +57,13 @@ class ChatController extends Controller
         $repository = $this->getDoctrine()->getRepository('DiscordBundle:Message');
         $messages = $repository->findAll();
 
-
         /**
          * Message part
          */
         $display = new Message();
         $display->setDatetime(new \DateTime("now"));
         $user_name = $session->get('name');
+        $display->setUsername($user_name);
 
         $form3 = $this->createForm(ChatForm::class, $display);
         $form3->handleRequest($request);
