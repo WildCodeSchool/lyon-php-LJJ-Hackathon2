@@ -10,4 +10,5 @@ namespace DiscordBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
